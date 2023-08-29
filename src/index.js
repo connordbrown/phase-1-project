@@ -7,6 +7,8 @@ function fetchDigimon() {
     fetch("http://localhost:3000/digimon")
       .then(response => response.json())
       .then(data => {
+            const [firstDigimon] = data;
+            viewDigimon(firstDigimon.name, firstDigimon.img, firstDigimon.level);
             fillPage(data);
             filterDigimon(data);
             submitNewDigimon(data);
@@ -16,7 +18,7 @@ function fetchDigimon() {
 
 function fillPage(digiData) {
     const digimonContainer = document.querySelector('#digimon-container');
-    digimonContainer.textContent = "";
+        digimonContainer.textContent = "";
 
     const digiList = document.createElement('ul');
         digiList.id = 'digimon-list';
