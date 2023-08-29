@@ -66,6 +66,11 @@ function viewDigimon(digiName, digiImg, digiLevel) {
     digimonCard.appendChild(name);
     digimonCard.appendChild(image);
     digimonCard.appendChild(level);
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
@@ -79,6 +84,8 @@ function submitNewDigimon(digiData) {
         const level = event.target[2].value;
 
         postNewDigimon(name, image, level, digiData);
+
+        form.reset();
     })
 }
 
@@ -101,7 +108,9 @@ function postNewDigimon(digiName, digiImage, digiLevel, digiData) {
     fetch("http://localhost:3000/digimon", postObj)
       .then(response => response.json())
       .then(newDigimon => {
+        // add new Digimon to GET data
         digiData.push(newDigimon);
+        // display updated data
         fillPage(digiData);
       })
       .catch(error => alert(error.message))
