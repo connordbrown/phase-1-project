@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Phase 1 Project</title>
+    </head>
+    <body>
+        <div id="digimon-card"></div>
+        <h3>Digimon List</h3>
+        <label for="level-dropdown">Filter Digimon By Level:</label>
+        <select id="level-dropdown" name="select-level">
+            <option value="">-</option>
+            <option value="fresh">Fresh</option>
+            <option value="in-training">In-Training</option>
+            <option value="rookie">Rookie</option>
+            <option value="champion">Champion</option>
+            <option value="ultimate">Ultimate</option>
+            <option value="armor">Armor</option>
+            <option value="ultimate">Ultimate</option>
+        </select>
+        <div id="digimon-container"></div>
+        <button id="back"><=</button>
+        <button id="forward">=></button>
+        <div class="form-container">
+            <h3>Add a new Digimon</h3>
+            <form id="add-digimon-form">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="" placeholder="Digimon name"/><br>
+                <label for="image">Link:</label>
+                <input type="text" name="image" id="image" value="" placeholder="Image URL"/><br>
+                <label for="level">Level:</label>
+                <input type="text" name="level" id="level" value="" placeholder="Digimon level"/><br>
+                <input type="submit" name="submit" value="Add Digimon" class="submit"/>
+            </form>
+        </div>
+        <script type="text/javascript" src="src/index.js"></script>
+    </body>
+</html>
