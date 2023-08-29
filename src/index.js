@@ -9,23 +9,24 @@ function fetchDigimon() {
       .then(data => {
             fillPage(data);
             filterDigimon(data);
+            submitNewDigimon();
       })
 }
 
 
 function fillPage(digiData) {
     const digimonContainer = document.querySelector('#digimon-container');
-        digimonContainer.textContent = "";
 
     const digiList = document.createElement('ul');
         digiList.id = 'digimon-list';
 
     digiData.forEach(digimon => {
-        const {name} = digimon;
+        const {name, img, level} = digimon;
         const digiName = document.createElement('li');
             digiName.textContent = `${name} `;
         const digiButton = document.createElement('button');
             digiButton.textContent = 'view';
+            digiButton.addEventListener('click', () => viewDigimon(name, img, level));
         digiName.appendChild(digiButton);
 
         digiList.appendChild(digiName);
@@ -38,15 +39,82 @@ function fillPage(digiData) {
 function filterDigimon(digiData) {
     const selectLevel = document.querySelector('#level-dropdown');
     selectLevel.addEventListener('change', () => {
+        const digimonContainer = document.querySelector('#digimon-container');
+        digimonContainer.textContent = "";
         if (selectLevel.value === "") {
             fillPage(digiData);
         } else {
             const digiFiltered = digiData.filter((digimon) => {
                 return digimon.level === selectLevel.value;
-        })
+            })
             fillPage(digiFiltered);  
         }
     }) 
-
 }
 
+
+function viewDigimon(digiName, digiImg, digiLevel) {
+    const digimonCard = document.querySelector('#digimon-card');
+        digimonCard.textContent = "";
+
+    const name = document.createElement('h3');
+        name.textContent = digiName;
+    const image = document.createElement('img');
+        image.src = `${digiImg}`;
+    const level = document.createElement('h4');
+        level.textContent = digiLevel
+
+    digimonCard.appendChild(name);
+    digimonCard.appendChild(image);
+    digimonCard.appendChild(level);
+}
+
+
+function submitNewDigimon() {
+    const form = document.querySelector('#add-digimon-form');
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = event.target[0].value;
+        const image = event.target[1].value;
+        const level = event.target[2].value;
+
+        postNewDigimon(name, image, level);
+    })
+}
+
+
+function postNewDigimon(digiName, digiImage, digiLevel) {
+
+    const postObj = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            "name": digiName,
+            "img": digiImage,
+            "level": digiLevel
+        })
+    }
+
+    fetch("http://localhost:3000/digimon", postObj)
+      .then(response => response.json())
+      .then(newDigimon => addNewDigimon(newDigimon))
+      .catch(error => alert(error.message))
+}
+
+
+function addNewDigimon(digimon) {
+    const digiList = document.querySelector('#digimon-list');
+    const {name} = digimon;
+    const digiName = document.createElement('li');
+        digiName.textContent = `${name} `;
+    const digiButton = document.createElement('button');
+        digiButton.textContent = 'view';
+        digiButton.addEventListener('click', () => viewDigimon(name, img, level));
+    digiName.appendChild(digiButton);
+
+    digiList.appendChild(digiName);
+}
