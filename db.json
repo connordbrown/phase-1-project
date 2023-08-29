@@ -1,5 +1,5 @@
 {
-    "digimon": [
+  "digimon": [
     {
     "name": "Koromon",
     "img": "https://digimon.shadowsmith.com/img/koromon.jpg",
@@ -1254,5 +1254,5 @@
     "level": "Mega",
     "id": 209
     }
-    ]
+  ]
 }
