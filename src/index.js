@@ -38,10 +38,14 @@ function fillPage(digiData) {
 function filterDigimon(digiData) {
     const selectLevel = document.querySelector('#level-dropdown');
     selectLevel.addEventListener('change', () => {
-        let digiFiltered = digiData.filter((digimon) => {
-            return digimon.level === selectLevel.value;
+        if (selectLevel.value === "") {
+            fillPage(digiData);
+        } else {
+            const digiFiltered = digiData.filter((digimon) => {
+                return digimon.level === selectLevel.value;
         })
-        fillPage(digiFiltered);  
+            fillPage(digiFiltered);  
+        }
     }) 
 
 }
