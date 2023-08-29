@@ -9,13 +9,14 @@ function fetchDigimon() {
       .then(data => {
             fillPage(data);
             filterDigimon(data);
-            submitNewDigimon();
+            submitNewDigimon(data);
       })
 }
 
 
 function fillPage(digiData) {
     const digimonContainer = document.querySelector('#digimon-container');
+    digimonContainer.textContent = "";
 
     const digiList = document.createElement('ul');
         digiList.id = 'digimon-list';
@@ -39,8 +40,6 @@ function fillPage(digiData) {
 function filterDigimon(digiData) {
     const selectLevel = document.querySelector('#level-dropdown');
     selectLevel.addEventListener('change', () => {
-        const digimonContainer = document.querySelector('#digimon-container');
-        digimonContainer.textContent = "";
         if (selectLevel.value === "") {
             fillPage(digiData);
         } else {
@@ -70,7 +69,7 @@ function viewDigimon(digiName, digiImg, digiLevel) {
 }
 
 
-function submitNewDigimon() {
+function submitNewDigimon(digiData) {
     const form = document.querySelector('#add-digimon-form');
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -79,12 +78,12 @@ function submitNewDigimon() {
         const image = event.target[1].value;
         const level = event.target[2].value;
 
-        postNewDigimon(name, image, level);
+        postNewDigimon(name, image, level, digiData);
     })
 }
 
 
-function postNewDigimon(digiName, digiImage, digiLevel) {
+function postNewDigimon(digiName, digiImage, digiLevel, digiData) {
 
     const postObj = {
         method: "POST",
@@ -101,20 +100,9 @@ function postNewDigimon(digiName, digiImage, digiLevel) {
 
     fetch("http://localhost:3000/digimon", postObj)
       .then(response => response.json())
-      .then(newDigimon => addNewDigimon(newDigimon))
+      .then(newDigimon => {
+        digiData.push(newDigimon);
+        fillPage(digiData);
+      })
       .catch(error => alert(error.message))
-}
-
-
-function addNewDigimon(digimon) {
-    const digiList = document.querySelector('#digimon-list');
-    const {name} = digimon;
-    const digiName = document.createElement('li');
-        digiName.textContent = `${name} `;
-    const digiButton = document.createElement('button');
-        digiButton.textContent = 'view';
-        digiButton.addEventListener('click', () => viewDigimon(name, img, level));
-    digiName.appendChild(digiButton);
-
-    digiList.appendChild(digiName);
 }
