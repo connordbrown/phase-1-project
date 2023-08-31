@@ -8,7 +8,7 @@ function fetchDigimon() {
       .then(response => response.json())
       .then(data => {
             const [firstDigimon] = data;
-            viewDigimon(firstDigimon.name, firstDigimon.img, firstDigimon.level);
+            viewDigimon(firstDigimon);
             fillPage(data);
             filterDigimon(data);
             submitNewDigimon(data);
@@ -24,12 +24,12 @@ function fillPage(digiData) {
         digiList.id = 'digimon-list';
 
     digiData.forEach(digimon => {
-        const {name, img, level} = digimon;
+        const {name, img, level, id} = digimon;
         const digiName = document.createElement('li');
             digiName.textContent = `${name} `;
         const digiButton = document.createElement('button');
             digiButton.textContent = 'view';
-            digiButton.addEventListener('click', () => viewDigimon(name, img, level));
+            digiButton.addEventListener('click', () => viewDigimon(digimon));
         digiName.appendChild(digiButton);
 
         digiList.appendChild(digiName);
@@ -54,20 +54,27 @@ function filterDigimon(digiData) {
 }
 
 
-function viewDigimon(digiName, digiImg, digiLevel) {
+function viewDigimon(digimon) {
     const digimonCard = document.querySelector('#digimon-card');
         digimonCard.textContent = "";
 
     const name = document.createElement('h3');
-        name.textContent = digiName;
+        name.textContent = digimon.name;
     const image = document.createElement('img');
-        image.src = `${digiImg}`;
+        image.src = digimon.img;
     const level = document.createElement('h4');
-        level.textContent = digiLevel
-
+        level.textContent = digimon.level;
+    const likeBtn = document.createElement('button');
+        if (digimon.likes === undefined) {
+            digimon.likes = 0;
+        }
+        likeBtn.textContent = `Likes: ${digimon.likes}`;
+        likeBtn.addEventListener('click', () => likeDigimon(digimon))
+    
     digimonCard.appendChild(name);
     digimonCard.appendChild(image);
     digimonCard.appendChild(level);
+    digimonCard.appendChild(likeBtn);
 
     window.scrollTo({
         top: 0,
@@ -75,6 +82,21 @@ function viewDigimon(digiName, digiImg, digiLevel) {
     });
 }
 
+
+function likeDigimon(digimon) {
+
+    const updateObj = {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({"likes": digimon.likes+=1})
+    }
+    fetch(`http://localhost:3000/digimon/${digimon.id}`, updateObj)
+      .then(response => response.json())
+      .then(viewDigimon(digimon))
+}
 
 function submitNewDigimon(digiData) {
     const form = document.querySelector('#add-digimon-form');
