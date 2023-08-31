@@ -77,8 +77,9 @@ function viewDigimon(digimon) {
         name.textContent = digimon.name;
     const image = document.createElement('img');
         image.src = digimon.img;
+        image.id = 'digimon-image';
     const level = document.createElement('h4');
-        level.textContent = digimon.level;
+        level.textContent = `Level: ${digimon.level}`;
     const likeBtn = document.createElement('button');
         // check if likes attribute exists
         if (digimon.likes === undefined) {

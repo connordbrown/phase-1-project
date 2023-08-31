@@ -1,0 +1,36 @@
+body {
+    background-color: lightblue;
+}
+
+
+
+#digimon-card {
+    box-sizing: border-box;
+    border: 10px solid black;
+    padding: 10px 10px 10px 10px;
+    justify-content: center;
+    background-color: lightgrey;
+    align-content: center;
+    width: 400px;
+    height: 520px;
+}
+
+#digimon-image {
+    box-sizing: border-box;
+    border: 2px solid black;
+    padding-right: auto;
+    max-width: calc(100% - 10px);
+    max-height: calc(100% - 10px);
+
+}
+
+#digimon-container {
+    box-sizing: border-box;
+    border: 2px solid black;
+    background-color: lightgoldenrodyellow;
+    width: 300px;
+    height: 220px;
+    margin-top: 10px;
+    overflow-y: auto;
+    text-align:justify;
+}
