@@ -8,29 +8,31 @@
     <body>
         <h1>Digimon Encyclopedia</h1>
         <div id="digimon-card"></div>
-        <h3>Digimon List</h3>
-        <label for="level-dropdown">Filter Digimon By Level:</label>
-        <select id="level-dropdown" name="select-level">
-            <option value="">-</option>
-            <option value="Fresh">Fresh</option>
-            <option value="In Training">In-Training</option>
-            <option value="Rookie">Rookie</option>
-            <option value="Champion">Champion</option>
-            <option value="Ultimate">Ultimate</option>
-            <option value="Armor">Armor</option>
-        </select>
-        <div id="digimon-container"></div>
-        <div class="form-container">
-            <h3>Add a new Digimon</h3>
-            <form id="add-digimon-form">
-                <label for="name">Name:</label>
-                <input type="text" name="name" id="name" value="" placeholder="Digimon name"/><br>
-                <label for="image">Link:</label>
-                <input type="text" name="image" id="image" value="" placeholder="Image URL"/><br>
-                <label for="level">Level:</label>
-                <input type="text" name="level" id="level" value="" placeholder="Digimon level"/><br>
-                <input type="submit" name="submit" value="Add Digimon" class="submit"/>
-            </form>
+        <div id="box-container">
+            <h3>Digimon List</h3>
+            <label for="level-dropdown">Filter Digimon By Level:</label>
+            <select id="level-dropdown" name="select-level">
+                <option value="">-</option>
+                <option value="Fresh">Fresh</option>
+                <option value="In Training">In-Training</option>
+                <option value="Rookie">Rookie</option>
+                <option value="Champion">Champion</option>
+                <option value="Ultimate">Ultimate</option>
+                <option value="Armor">Armor</option>
+            </select>
+            <div id="digimon-container"></div>
+            <div class="form-container">
+                <h3>Add a new Digimon</h3>
+                <form id="add-digimon-form">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" value="" placeholder="Digimon name"/><br>
+                    <label for="image">Link:</label>
+                    <input type="text" name="image" id="image" value="" placeholder="Image URL"/><br>
+                    <label for="level">Level:</label>
+                    <input type="text" name="level" id="level" value="" placeholder="Digimon level"/><br>
+                    <input type="submit" name="submit" value="Add Digimon" class="submit"/>
+                </form>
+            </div>
         </div>
         <script type="text/javascript" src="src/index.js"></script>
     </body>
