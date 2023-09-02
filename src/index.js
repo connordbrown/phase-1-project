@@ -119,6 +119,7 @@ function likeDigimon(digimon) {
       .then(response => response.json())
       // update DOM
       .then(viewDigimon(digimon))
+      .catch(error => alert(error.message))
 }
 
 
