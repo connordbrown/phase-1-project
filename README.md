@@ -18,6 +18,9 @@ open index.html
 
 When the page loads, the user will see a Digimon card, followed by a list of Digimon, followed by a 'Add a New Digimon' form. The user can scroll through the list of Digimon and select one to view using the 'view' button. The Digimon's name, image, and level will be displayed in the Digimon card at the top of the application. Digimon can be filtered by level using the 'Filter Digimon By Level' dropdown above the list. New Digimon can be added using the provided 'Add a New Digimon' form. 
 
+
+![](https://github.com/connordbrown/phase-1-project/blob/main/phase-1-project.gif)
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
