@@ -4,8 +4,7 @@
       "name": "Koromon",
       "img": "https://digimon.shadowsmith.com/img/koromon.jpg",
       "level": "In Training",
-      "id": 1,
-      "likes": 8
+      "id": 1
     },
     {
       "name": "Tsunomon",
@@ -323,7 +322,8 @@
       "name": "MetalGreymon",
       "img": "https://digimon.shadowsmith.com/img/metalgreymon.jpg",
       "level": "Ultimate",
-      "id": 54
+      "id": 54,
+      "likes": 1
     },
     {
       "name": "DemiDevimon",
@@ -1258,16 +1258,25 @@
       "id": 209
     },
     {
-      "name": "",
-      "img": "https://thecozycook.com/wp-content/uploads/2023/02/Homemade-Ramen-f.jpg",
-      "level": "",
-      "id": 210
+      "name": "Neighmon",
+      "img": "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2548&q=80",
+      "level": "Ultimate",
+      "id": 210,
+      "likes": 1
     },
     {
-      "name": "Jessie",
-      "img": "https://thecozycook.com/wp-content/uploads/2023/02/Homemade-Ramen-f.jpg",
+      "name": "Neighmon",
+      "img": "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2548&q=80",
       "level": "Ultimate",
-      "id": 211
+      "id": 211,
+      "likes": 1
+    },
+    {
+      "name": "Neighmon",
+      "img": "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2548&q=80",
+      "level": "Ultimate",
+      "id": 212,
+      "likes": 1
     }
   ]
 }
