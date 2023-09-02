@@ -65,6 +65,7 @@ function filterDigimon(digiData) {
     }) 
 }
 
+
 // view a specific Digimon
 // param: digimon (object)
 function viewDigimon(digimon) {
