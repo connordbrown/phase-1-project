@@ -21,6 +21,8 @@ When the page loads, the user will see a Digimon card, followed by a list of Dig
 
 <img src="https://github.com/connordbrown/phase-1-project/blob/main/phase-1-project.gif" width="400" height="700" />
 
+![](https://github.com/connordbrown/phase-1-project/blob/main/phase-1-project.gif =400x700)
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
